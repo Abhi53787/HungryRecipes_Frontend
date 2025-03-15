@@ -1,0 +1,17 @@
+{
+    "cars": [
+      {
+        "id": 1,
+        "image": "https://example.com/car1.jpg",
+        "name": "Toyota Corolla",
+        "price": 20000,
+        "mileage": 15,
+        "seats": 5,
+        "color": "Red",
+        "fuel": "Petrol",
+        "gear": "Automatic",
+        "description": "A reliable car with great mileage."
+      }
+    ]
+  }
+  
