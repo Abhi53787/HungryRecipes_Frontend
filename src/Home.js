@@ -30,8 +30,8 @@ const Home = () => {
               )}
               <div className="card-body">
                 <h5 className="card-title">{recipe.recipeName}</h5>
-                <p className="card-text">{recipe.ingredients}</p>
-                {/* Use correct property `recipeId` instead of `id` */}
+                <p className="card-text">{recipe.description}</p>
+                
                 <Link to={`/recipe/${recipe.recipeId}`} className="btn btn-primary">
                   View Recipe
                 </Link>

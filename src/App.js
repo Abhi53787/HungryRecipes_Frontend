@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import About from './about';
-
 import Dashboard from './Dashboard';
- import Carlist from './Carlist';
+import Carlist from './Carlist';
+import RecipeDetails from "./RecipeDetails"; 
 import CarDetails from './cardetails';
 import LoginComponent from './loginlogic/login';
 import ProtectedRoute from './loginlogic/protectRoute';
-import EditCarform from './EditCarform';
+import EditRecipe from './EditRecipeform';
 import AddRecipe  from './addrecipe';
 import RegisterComponent from './loginlogic/RegisterComponent';
 import Home from './Home';
@@ -107,7 +107,7 @@ function App() {
           <Route path="/carlist" element={<Carlist />} />
            
           <Route path="/cardetail/:id" element={<CarDetails />} />
-          <Route path="/editcar/:id" element={<EditCarform />} />
+          <Route path="/editrecipe/:userId/:recipeId" element={<EditRecipe />} />
           <Route path="/addrecipe/:id" element={<AddRecipe  />} />
           
         
@@ -117,6 +117,7 @@ function App() {
           <Route path='/login' element={<LoginComponent login={userLogin}/>}></Route>
           <Route path="/register" element={<RegisterComponent />} />
           <Route path='/' element={<Home/>}></Route>
+          <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
 
         </Routes>
 

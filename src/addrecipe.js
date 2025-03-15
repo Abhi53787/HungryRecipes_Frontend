@@ -26,8 +26,8 @@ function AddRecipe() {
             RecipeName: Yup.string().required("Name is required"),
             Description: Yup.string().required("Description is required"),
             Ingredients: Yup.string().required("Ingredients are required"),
-            Instructions: Yup.string().required("Instructions are required"),
-            ImageUrl: Yup.mixed()
+            Instructions: Yup.string().required("Instructions are required")
+            //ImageUrl: Yup.mixed()
         }),
         onSubmit: (values) => {
             console.log("🚀 Formik onSubmit triggered");
@@ -60,7 +60,7 @@ function AddRecipe() {
 
              response.json()})
             .then(data => {
-                console.log(data);
+                console.log("Response Text:",data);
                 setSuccessMessage("Recipe added successfully!");
                 setTimeout(() => navigate('/Dashboard'), 1500);
             })
