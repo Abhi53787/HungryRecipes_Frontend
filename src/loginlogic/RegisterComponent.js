@@ -37,7 +37,7 @@ const RegisterComponent = () => {
 
                 // Delay navigation to allow the user to see the success message
                 setTimeout(() => {
-                    navigate("/");
+                    navigate("/login");
                 }, 2000);
             } catch (error) {
                 formik.setFieldError("username", "Email already Exists");

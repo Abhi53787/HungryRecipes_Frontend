@@ -22,7 +22,7 @@ const RecipeDetails = () => {
 
     return (
         <div className="container mt-4">
-            <Link to="/" className="btn btn-secondary mb-3 d-inline-flex align-items-center gap-2 w-auto"><span class="material-symbols-outlined">
+            <Link to="/" className="btn btn-secondary mb-3 d-inline-flex align-items-center gap-2 w-auto"><span className="material-symbols-outlined">
 arrow_back
 </span> Back to Home</Link>
             <h2 className="card-title">{recipe.recipeName}</h2>

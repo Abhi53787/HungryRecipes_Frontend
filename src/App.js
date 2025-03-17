@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import About from './about';
 import Dashboard from './Dashboard';
-import Carlist from './Carlist';
 import RecipeDetails from "./RecipeDetails"; 
-import CarDetails from './cardetails';
+
 import LoginComponent from './loginlogic/login';
 import ProtectedRoute from './loginlogic/protectRoute';
 import EditRecipe from './EditRecipeform';
@@ -51,7 +50,7 @@ function App() {
             {isUserAuthenticated && (
               <>
                 <li className="nav-item"><Link to="/Dashboard" className="nav-link">Dashboard</Link></li>
-                <li className="nav-item"><Link to="/carlist" className="nav-link">Car List</Link></li>
+                
                 <li className="nav-item"><Link to="/About" className="nav-link">About</Link></li>
                 
                 
@@ -99,14 +98,14 @@ function App() {
         
           <Route path="/About" element={<About />} />
           <Route element={<ProtectedRoute isUserAuthenticated={isUserAuthenticated}/>}>
-          <Route path="/carlist" element={<Carlist />} />
+          
           <Route path="/Dashboard" element={<Dashboard />} />
           
           
           
-          <Route path="/carlist" element={<Carlist />} />
+          
            
-          <Route path="/cardetail/:id" element={<CarDetails />} />
+          
           <Route path="/editrecipe/:userId/:recipeId" element={<EditRecipe />} />
           <Route path="/addrecipe/:id" element={<AddRecipe  />} />
           

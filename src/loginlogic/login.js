@@ -8,13 +8,13 @@ const LoginComponent = ({ login }) => {
     const navigate = useNavigate();
     const loginApi = "http://localhost:5142/api/Login";
 
-    // Validation Schema using Yup
+    //for validation
     const validationSchema = Yup.object({
         email: Yup.string().required("Email is required"),
         password: Yup.string().required("Password is required"),
     });
 
-    // Formik for handling form state and validation
+    
      
     const formik = useFormik({
         initialValues: {
@@ -28,7 +28,7 @@ const LoginComponent = ({ login }) => {
             axios
                 .post(loginApi, values)
                 .then((response) => {
-                    console.log("Login API Response:", response.data); // Debugging
+                    console.log("Login API Response:", response.data);  
 
                     if (response.data) {
                         localStorage.setItem("userId", response.data.userId);
@@ -53,7 +53,7 @@ const LoginComponent = ({ login }) => {
                 <h2 className="text-center mb-4 text-primary">Login</h2>
 
                 <form onSubmit={formik.handleSubmit}>
-                    {/* Username Field */}
+                    
                     <div className="mb-3">
                         <label className="form-label fw-bold">Email <span style={{ color: "red" }}>*</span></label>
                         <input
@@ -70,7 +70,7 @@ const LoginComponent = ({ login }) => {
                         )}
                     </div>
 
-                    {/* Password Field */}
+                    
                     <div className="mb-3">
                         <label className="form-label fw-bold">Password <span style={{ color: "red" }}>*</span></label>
                         <input
@@ -87,7 +87,7 @@ const LoginComponent = ({ login }) => {
                         )}
                     </div>
 
-                    {/* Buttons */}
+                    
                     <div className="d-flex justify-content-between align-items-center">
                         {/* Login Button */}
                         <button className="btn btn-dark d-flex align-items-center justify-content-center gap-2">
@@ -95,7 +95,7 @@ const LoginComponent = ({ login }) => {
                             <span>Login</span>
                         </button>
 
-                        {/* Register Button (Aligned to Right) */}
+                        
                         <button
                             type="button"
                             

@@ -44,6 +44,8 @@ class APIManager {
             body: JSON.stringify(data)
         })
     }
+     
+    
 }
 
 export default APIManager;
