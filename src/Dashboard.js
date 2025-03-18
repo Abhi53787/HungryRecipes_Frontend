@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import APIManager from "./APIManager";
+import { useSelector, useDispatch } from "react-redux";
 
 function Dashboard() {
+    const userName = useSelector((state) => state.user.name); // Get user name from Redux
+    const dispatch = useDispatch();
     const [recipes, setRecipes] = useState([]);
     const [selectedRecipeId, setSelectedRecipeId] = useState(null);
     const navigate = useNavigate();
@@ -48,10 +51,13 @@ function Dashboard() {
     }
 
     return (
+        
         <div className="container mt-4">
-            {/* Header */}
+           
+             
+            
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h2 className="text">Dashboard</h2>
+            <h2>Hello, {userName ? userName : "Guest"} 👋 Here is your Dashboard </h2>
                 <button onClick={() => addRecipe(userId)} className="btn btn-primary shadow-sm">
                     + Add Recipe
                 </button>
@@ -60,8 +66,8 @@ function Dashboard() {
             <marquee>Track Your Recipes Here</marquee>
 
             {recipes.length === 0 ? (
-                <p className="text-center"><div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <p className="text-center"><div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
               </div></p>
             ) : (
                 <div className="row">
@@ -82,7 +88,7 @@ function Dashboard() {
                                             onClick={() => navigateEditform(userId, recipe.recipeId)}
                                             className="btn btn-info btn-sm"
                                         >
-                                            <span className="material-symbols-outlined">edit</span> Edit
+                                            <span className="material-symbols-outlined">edit</span>  
                                         </button>
                                         <button
                                             onClick={() => confirmDelete(recipe.recipeId)}
@@ -90,7 +96,7 @@ function Dashboard() {
                                             data-bs-toggle="modal"
                                             data-bs-target="#deleteModal"
                                         >
-                                            <span className="material-symbols-outlined">delete</span> Delete
+                                            <span className="material-symbols-outlined">delete</span>  
                                         </button>
                                         
                                     </div>

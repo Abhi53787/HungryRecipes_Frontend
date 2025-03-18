@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios"; 
 import { useSelector, useDispatch } from "react-redux";
-import { searchRecipes } from "./redux-store/recipeActions";
+ 
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   
-  const dispatch = useDispatch();
-  const recipess = useSelector((state) => state.filteredRecipes);
+ 
+  
 
   useEffect(() => {
     axios.get("http://localhost:5142/api/Recipe")
@@ -17,22 +17,16 @@ const Home = () => {
         setRecipes(response.data);
       })
       .catch(error => console.error("Error fetching recipes:", error));
-  }, [dispatch]);
-  const handleSearch = (event) => {
-    dispatch(searchRecipes(event.target.value));
-};
-  
-  
+  }, []);
+ 
   return (
     <div className="container mt-4">
       <h2 style={{ fontFamily: 'cursive' }}>Trendy Recipes</h2>
-      <center>
-      <input  style={{color:"black", borderRadius:"10px", marginBottom:"10px"}}type="text" placeholder="Search by category" onChange={handleSearch} />
-      </center>
+      
       {recipes.length === 0 ? (
-                <p className="text-center"><div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div></p>
+                <div className="text-center"><div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div></div>
             ) : (
       <div className="row">
         {recipes.map(recipe => (

@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 
 const LoginComponent = ({ login }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const loginApi = "http://localhost:5142/api/Login";
 
     //for validation
@@ -35,6 +37,7 @@ const LoginComponent = ({ login }) => {
                         console.log("Stored User ID:", localStorage.getItem("userId"));
 
                         localStorage.setItem("jwtToken", response.data.jwttoken);
+                        dispatch({ type: "SET_USER", payload: response.data.name });
                         login();
                         navigate("/Dashboard");
                     } else {

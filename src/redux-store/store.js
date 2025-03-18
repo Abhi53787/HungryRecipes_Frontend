@@ -1,6 +1,11 @@
-import { createStore } from "redux";
-import recipeReducer from "./recipeReducer";
+// src/redux/store.js
+import { legacy_createStore as createStore, combineReducers } from "redux";
+import userReducer from "./userReducer";
 
-const store = createStore(recipeReducer);
+const rootReducer = combineReducers({
+  user: userReducer,
+});
+
+const store = createStore(rootReducer);
 
 export default store;
