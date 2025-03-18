@@ -7,7 +7,6 @@ import * as Yup from "yup";
 const RegisterComponent = () => {
     const navigate = useNavigate();
     const [successMessage, setSuccessMessage] = useState("");
-
     const validationSchema = Yup.object({
         Name: Yup.string().required("Username is required"),
         Email:Yup.string().email().required("Email is required"),
@@ -16,7 +15,6 @@ const RegisterComponent = () => {
             .oneOf([Yup.ref("password"), null], "Passwords must match")
             .required("Confirm Password is required"),
     });
-
     const formik = useFormik({
         initialValues: {
             Name: "",
@@ -32,10 +30,7 @@ const RegisterComponent = () => {
                     Email: values.Email,
                     password: values.password,
                 });
-
                 setSuccessMessage("Registration successful!");
-
-                // Delay navigation to allow the user to see the success message
                 setTimeout(() => {
                     navigate("/login");
                 }, 2000);
@@ -48,9 +43,7 @@ const RegisterComponent = () => {
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
             <div className="card p-4 rounded-4" style={{ width: "400px" }}>
-                <h2 className="text-center mb-4 text-primary">Register </h2>
-
-                {/* ✅ Success Message - Now it displays properly before redirecting */}
+                <h2 className="text-center mb-4 text-primary">Register </h2> 
                 {successMessage && (
                     <div className="alert alert-success text-center">
                         {successMessage}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import About from './components/about';
 import Dashboard from './components/Dashboard';
-import RecipeDetails from "./RecipeDetails"; 
+import RecipeDetails from "./components/RecipeDetails"; 
 
 import LoginComponent from './loginlogic/login';
 import ProtectedRoute from './loginlogic/protectRoute';
@@ -23,16 +23,10 @@ function App() {
       <div className="container-fluid px-0">
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm" data-testid="menu-content">
       <div className="container-fluid">
-        
-        {/* Brand Name */}
         <Link to="/Home" className="navbar-brand fw-bold text-light" style={{ fontFamily:'cursive'} }>HungryRecipes</Link>
-        
-        {/* Mobile Menu Toggle */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
-        </button>
-        
-        {/* Navbar Links */}
+        </button> 
         <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto"> 
           {!isUserAuthenticated&&(
@@ -42,31 +36,17 @@ function App() {
           
           <li className="nav-item"><Link to="/login" className="nav-link">Join Us</Link></li>
             </>
-          )}
-           
-         
-          
-          
-            {isUserAuthenticated && (
+          )}{isUserAuthenticated && (
               <>
                 <li className="nav-item"><Link to="/Dashboard" className="nav-link">Dashboard</Link></li>
                 
                 <li className="nav-item"><Link to="/About" className="nav-link">About</Link></li>
-                
-                
-                
-                
-
-                {/* Logout Button */}
                 <li className="nav-item">
                 <button className="btn btn-outline-light ms-3 d-flex align-items-center"
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#logoutModal">
-                                  <span className="material-symbols-outlined me-1">logout</span> Logout
-                                </button>
-
-
-                </li>
+                 data-bs-toggle="modal"data-bs-target="#logoutModal">
+                  <span className="material-symbols-outlined me-1">logout</span> Logout
+                  </button>
+                  </li>
               </>
               
             )}
@@ -94,34 +74,19 @@ function App() {
             </div>
     </nav>
         <Routes>
-        
-        
           <Route path="/About" element={<About />} />
           <Route element={<ProtectedRoute isUserAuthenticated={isUserAuthenticated}/>}>
-          
           <Route path="/Dashboard" element={<Dashboard />} />
-          
-          
-          
-          
-           
-          
           <Route path="/editrecipe/:userId/:recipeId" element={<EditRecipe />} />
           <Route path="/addrecipe/:id" element={<AddRecipe  />} />
-          
-        
-          {/* /editcar/${id} */}
-         
           </Route>
+
           <Route path='/login' element={<LoginComponent login={userLogin}/>}></Route>
           <Route path="/register" element={<RegisterComponent />} />
           <Route path='/' element={<Home/>}></Route>
           <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
-
         </Routes>
-
-      
-      </div>
+        </div>
     </div>
   );
 }

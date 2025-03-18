@@ -53,9 +53,7 @@ function Dashboard() {
     return (
         
         <div className="container mt-4">
-           
-             
-            
+
             <div className="d-flex justify-content-between align-items-center mb-4">
             <h2>Hello, {userName ? userName : "Guest"} 👋 Here is your Dashboard </h2>
                 <button onClick={() => addRecipe(userId)} className="btn btn-primary shadow-sm">
@@ -66,9 +64,7 @@ function Dashboard() {
             <marquee>Track Your Recipes Here</marquee>
 
             {recipes.length === 0 ? (
-                <p className="text-center"><div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div></p>
+                <p>no recipes</p>
             ) : (
                 <div className="row">
                     {recipes.map((recipe) => (
@@ -106,8 +102,6 @@ function Dashboard() {
                     ))}
                 </div>
             )}
-
-            {/* Delete Confirmation Modal */}
             <div
                 className="modal fade"
                 id="deleteModal"

@@ -7,16 +7,15 @@ function EditRecipe() {
     const { userId, recipeId } = useParams();
     const navigate = useNavigate();
     const baseUrl = `http://localhost:5142/api/User/${userId}/${recipeId}`;
-
     const [successMessage, setSuccessMessage] = useState("");
-    const [recipeData, setRecipeData] = useState(null); // Store fetched data
+    const [recipeData, setRecipeData] = useState(null); 
 
     useEffect(() => {
         APIManager.GetAPICall(baseUrl)
             .then(data => {
                 console.log(data);
                 if (data) {
-                    setRecipeData(data[0]); // Store data before passing it to Formik
+                    setRecipeData(data[0]);  
                 }
             })
             .catch(error => console.error("Error fetching recipe:", error));
@@ -74,8 +73,7 @@ function EditRecipe() {
                 </div>
             )}
 
-            <form onSubmit={formik.handleSubmit} className="bg-white p-4 border rounded">
-                {/* First Row */}
+            <form onSubmit={formik.handleSubmit} className="bg-white p-4 border rounded"> 
                 <div className="row mb-3">
                     <div className="col-md-4">
                         <label className="form-label">Category</label>
@@ -100,9 +98,7 @@ function EditRecipe() {
                         <input type="text" name="Description" className="form-control"
                             value={formik.values.Description} onChange={formik.handleChange} />
                     </div>
-                </div>
-
-                {/* Second Row */}
+                </div> 
                 <div className="row mb-3">
                     <div className="col-md-4">
                         <label className="form-label">Ingredients</label>

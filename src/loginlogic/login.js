@@ -9,15 +9,10 @@ const LoginComponent = ({ login }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const loginApi = "http://localhost:5142/api/Login";
-
-    //for validation
     const validationSchema = Yup.object({
         email: Yup.string().required("Email is required"),
         password: Yup.string().required("Password is required"),
-    });
-
-    
-     
+    });  
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -63,13 +58,13 @@ const LoginComponent = ({ login }) => {
                             type="email"
                             className={`form-control ${formik.touched.email && formik.errors.email ? "is-invalid" : ""}`}
                             name="email"
-                            value={formik.values.name}
+                            value={formik.values.email}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             placeholder="Enter your email"
                         />
-                        {formik.touched.name && formik.errors.name && (
-                            <div className="invalid-feedback">{formik.errors.name}</div>
+                        {formik.touched.email && formik.errors.email && (
+                            <div className="invalid-feedback">{formik.errors.email}</div>
                         )}
                     </div>
 
@@ -89,33 +84,23 @@ const LoginComponent = ({ login }) => {
                             <div className="invalid-feedback">{formik.errors.password}</div>
                         )}
                     </div>
-
-                    
                     <div className="d-flex justify-content-between align-items-center">
-                        {/* Login Button */}
                         <button className="btn btn-dark d-flex align-items-center justify-content-center gap-2">
                             <span className="material-symbols-outlined" style={{ fontSize: "20px", verticalAlign: "middle" }}>login</span>
                             <span>Login</span>
                         </button>
-
-                        
                         <button
                             type="button"
                             
                             className="btn btn-outline-primary"
                             
-                            onClick={
-                                
+                            onClick={                                
                                 () => {
                                     console.log("Register button clicked!");
                                     navigate("/register")}}  
-                        >
-                            Register
+                        >Register
                         </button>
-
-                       
-                    </div>
-
+                        </div>
                 </form>
             </div>
         </div>

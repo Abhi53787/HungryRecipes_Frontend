@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const RecipeDetails = () => {
-    const { recipeId } = useParams(); // Get recipeId from URL
+    const { recipeId } = useParams();  
     const [recipe, setRecipe] = useState(null);
     const [error, setError] = useState(null);
 
@@ -18,10 +18,9 @@ const RecipeDetails = () => {
             });
     }, [recipeId]);
 
-    if (!recipe) return <p className="text-center text-danger">{error || <div class="spinner-grow" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>}</p>; // prevents error while rendering
-
+    if (!recipe) return <div className="text-center text-danger">{error || <div className="spinner-grow" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>}</div>;  
     return (
         <div className="container mt-4">
             <Link to="/" className="btn btn-secondary mb-3 d-inline-flex align-items-center gap-2 w-auto"><span className="material-symbols-outlined">

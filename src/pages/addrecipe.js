@@ -8,8 +8,6 @@ function AddRecipe() {
     const { id } = useParams();
     const navigate = useNavigate();
     const baseUrl = `http://localhost:5142/api/User/${id}`;
-
-    // State for success message
     const [successMessage, setSuccessMessage] = useState("");
 
     const formik = useFormik({
@@ -27,7 +25,7 @@ function AddRecipe() {
             Description: Yup.string().required("Description is required"),
             Ingredients: Yup.string().required("Ingredients are required"),
             Instructions: Yup.string().required("Instructions are required")
-            //ImageUrl: Yup.mixed()
+            
         }),
         onSubmit: (values) => {
             console.log("🚀 Formik onSubmit triggered");
@@ -56,8 +54,6 @@ function AddRecipe() {
         APIManager.PostApicall(baseUrl, values)
             .then(response =>{
                 console.log("in Post API Call Initiated with values:", response);
-
-
              response.json()})
             .then(data => {
                 console.log("Response Text:",data);
@@ -66,12 +62,9 @@ function AddRecipe() {
             })
             .catch(error => alert("Error adding the Recipe"));
     }
-
     return (
         <div className="container vh-100 w-100 p-4">
             <h2 className="mb-3">Add Recipe</h2>
-
-            {/* Success Alert */}
             {successMessage && (
                 <div className="alert alert-success text-center" role="alert">
                     {successMessage}
@@ -79,7 +72,6 @@ function AddRecipe() {
             )}
 
             <form onSubmit={formik.handleSubmit} className="bg-white p-4 border rounded">
-                {/* First Row */}
                 <div className="row mb-3">
                     <div className="col-md-4">
                         <label className="form-label">Category <span style={{ color: "red" }}>*</span></label>
@@ -110,9 +102,7 @@ function AddRecipe() {
                             value={formik.values.Description} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                         {formik.touched.Description && formik.errors.Description && <div className="text-danger small">{formik.errors.Description}</div>}
                     </div>
-                </div>
-
-                {/* Second Row  */}
+                </div> 
                 <div className="row mb-3">
                     <div className="col-md-4">
                         <label className="form-label">Ingredients <span style={{ color: "red" }}>*</span></label>
@@ -140,9 +130,7 @@ function AddRecipe() {
                             onChange={handleFileChange}
                         />
                     </div>
-                </div>
-
-                {/* Submit Button */}
+                </div> 
                 <button type="submit" className="btn btn-primary" onClick={() => console.log("🔴 Submit Button Clicked!")}>
                     Submit
                 </button>

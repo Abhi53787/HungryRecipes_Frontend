@@ -6,10 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
-  
- 
-  
-
   useEffect(() => {
     axios.get("http://localhost:5142/api/Recipe")
       .then(response => {

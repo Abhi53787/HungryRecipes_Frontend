@@ -19,7 +19,6 @@ function About() {
       </p>
 
       <div className="row mt-5">
-        {/* Recipe 1: Pasta */}
         <div className="col-md-4">
           <div className="card shadow-lg bg-dark text-white border-0 rounded-4">
             <img
@@ -36,8 +35,6 @@ function About() {
             </div>
           </div>
         </div>
-
-        {/* Recipe 2: Biryani */}
         <div className="col-md-4">
           <div className="card shadow-lg bg-dark text-white border-0 rounded-4">
             <img
@@ -55,7 +52,7 @@ function About() {
           </div>
         </div>
 
-        {/* Recipe 3: Chocolate Cake */}
+        
         <div className="col-md-4">
           <div className="card shadow-lg bg-dark text-white border-0 rounded-4">
             <img
@@ -73,8 +70,6 @@ function About() {
           </div>
         </div>
       </div>
-
-      {/* Reach to Us Form */}
       <div className="mt-5 p-4 rounded-4" style={{ background: "#000", color: "#fff" }}>
         <h2 className="text-center mb-4">Reach to Us</h2>
         <form className="mx-auto" style={{ maxWidth: "400px" }}>

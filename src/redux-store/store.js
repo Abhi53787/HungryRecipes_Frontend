@@ -1,4 +1,3 @@
-// src/redux/store.js
 import { legacy_createStore as createStore, combineReducers } from "redux";
 import userReducer from "./userReducer";
 
