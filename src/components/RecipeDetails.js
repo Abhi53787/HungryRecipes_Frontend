@@ -21,29 +21,36 @@ const RecipeDetails = () => {
     if (!recipe) return <div className="text-center text-danger">{error || <div className="spinner-grow" role="status">
         <span className="visually-hidden">Loading...</span>
       </div>}</div>;  
+
     return (
         <div className="container mt-4">
-            <Link to="/" className="btn btn-secondary mb-3 d-inline-flex align-items-center gap-2 w-auto"><span className="material-symbols-outlined">
-arrow_back
-</span> Back to Home</Link>
+            <Link to="/" className="btn btn-secondary mb-3 d-inline-flex align-items-center gap-2 w-auto">
+                <span className="material-symbols-outlined">arrow_back</span> Back to Home
+            </Link>
             <h2 className="card-title">{recipe.recipeName}</h2>
-                    <p className="card-text">{recipe.description}</p>
+            <p className="card-text">{recipe.description}</p>
+            
             <div className="card shadow-lg p-4 bg-light text-dark border-0 rounded-4">
                 {recipe.imageUrl ? (
                     <img src={recipe.imageUrl} className="card-img-top rounded-3" alt={recipe.recipeName} />
                 ) : (
                     <div className="p-3 text-center">No Image Available</div>
                 )}
+                
                 <div className="card-body">
-                    
                     <h4>Ingredients</h4>
                     <ul>
-                        {recipe.ingredients.split(",").map((ingredient, index) => (
+                        {recipe.ingredients.split("\n").map((ingredient, index) => (
                             <li key={index}>{ingredient.trim()}</li>
                         ))}
                     </ul>
+                    
                     <h4>Steps</h4>
-                    <p>{recipe.instructions}</p>
+                    <ul>
+                        {recipe.instructions.split("\n").map((step, index) => (
+                            <li key={index}>{step.trim()}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>
