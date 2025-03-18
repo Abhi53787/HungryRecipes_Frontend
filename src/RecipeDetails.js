@@ -18,7 +18,9 @@ const RecipeDetails = () => {
             });
     }, [recipeId]);
 
-    if (!recipe) return <p className="text-center text-danger">{error || "Fetching recipe details..."}</p>; // prevents error while rendering
+    if (!recipe) return <p className="text-center text-danger">{error || <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>}</p>; // prevents error while rendering
 
     return (
         <div className="container mt-4">

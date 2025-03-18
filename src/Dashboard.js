@@ -60,7 +60,9 @@ function Dashboard() {
             <marquee>Track Your Recipes Here</marquee>
 
             {recipes.length === 0 ? (
-                <p className="text-center">No recipes found.</p>
+                <p className="text-center"><div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div></p>
             ) : (
                 <div className="row">
                     {recipes.map((recipe) => (
