@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import About from './about';
-import Dashboard from './Dashboard';
+import About from './components/about';
+import Dashboard from './components/Dashboard';
 import RecipeDetails from "./RecipeDetails"; 
 
 import LoginComponent from './loginlogic/login';
 import ProtectedRoute from './loginlogic/protectRoute';
-import EditRecipe from './EditRecipeform';
-import AddRecipe  from './addrecipe';
+import EditRecipe from './pages/EditRecipeform';
+import AddRecipe  from './pages/addrecipe';
 import RegisterComponent from './loginlogic/RegisterComponent';
-import Home from './Home';
+import Home from './components/Home';
 function App() {
   const [isUserAuthenticated,setAuthentication] =useState(false);
   const userLogin=()=>{

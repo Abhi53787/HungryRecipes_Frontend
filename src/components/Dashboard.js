@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import APIManager from "./APIManager";
+import APIManager from "../services/APIManager";
 import { useSelector, useDispatch } from "react-redux";
 
 function Dashboard() {

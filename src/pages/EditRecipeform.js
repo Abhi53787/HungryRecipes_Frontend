@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
-import APIManager from "./APIManager";
+import APIManager from "../services/APIManager";
 
 function EditRecipe() {
     const { userId, recipeId } = useParams();

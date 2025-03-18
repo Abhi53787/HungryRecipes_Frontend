@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import APIManager from "./APIManager";
+import APIManager from "../services/APIManager";
 
 function AddRecipe() {
     const { id } = useParams();
